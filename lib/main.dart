@@ -24,6 +24,8 @@ class _MaPageState extends State<MaPage> {
   List<String> villes = ['Sangmelima', 'Meyomessala', 'Zoetele', 'Avebe Esse'];
   String selectedVille = 'Sangmelima'; // ou toute autre valeur par défaut
 
+  List<bool> isButtonPressed = [false, false, false, false];
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -104,88 +106,105 @@ class _MaPageState extends State<MaPage> {
                   separatorBuilder: (BuildContext context, int index) =>
                       SizedBox(height: 16),
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      padding: EdgeInsets.symmetric(vertical: 32),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        border: Border.all(
-                          color: Color.fromARGB(255, 238, 236, 236),
-                          width: 2, // Largeur de la bordure
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          for (int i = 0; i < isButtonPressed.length; i++) {
+                            if (i == index) {
+                              isButtonPressed[i] = !isButtonPressed[i];
+                            } else {
+                              isButtonPressed[i] = false;
+                            }
+                          }
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 32),
+                        decoration: BoxDecoration(
+                          color: isButtonPressed[index]
+                              ? Colors.orange
+                              : Colors.grey[200],
+                          border: Border.all(
+                            color: isButtonPressed[index]
+                                ? Colors.orange
+                                : Color.fromARGB(255, 238, 236, 236),
+                            width: 2, // Largeur de la bordure
+                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              Image.asset(
-                                'icons/depotGaz.png',
-                                width: 50,
-                                height: 50,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Station Tradex',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              children: [
+                                Image.asset(
+                                  'icons/depotGaz.png',
+                                  width: 50,
+                                  height: 50,
                                 ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Image.asset(
-                                'icons/prix.png',
-                                width: 50,
-                                height: 50,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                '7000XAF',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
+                                SizedBox(height: 8),
+                                Text(
+                                  'Station Tradex',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Image.asset(
-                                'icons/position.png',
-                                width: 50,
-                                height: 50,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Afamba',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Image.asset(
+                                  'icons/prix.png',
+                                  width: 50,
+                                  height: 50,
                                 ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Image.asset(
-                                'icons/whatsapp.png',
-                                width: 50,
-                                height: 50,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                '237655223631',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
+                                SizedBox(height: 8),
+                                Text(
+                                  '7000XAF',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Image.asset(
+                                  'icons/position.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Afamba',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Image.asset(
+                                  'icons/whatsapp.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  '237655223631',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
