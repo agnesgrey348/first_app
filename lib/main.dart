@@ -103,7 +103,7 @@ class _MaPageState extends State<MaPage> {
                 }).toList(),
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 4),
             Expanded(
               child: ListView.separated(
                 itemCount: 4,
@@ -225,7 +225,7 @@ class _MaPageState extends State<MaPage> {
 ),
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 23),
             Container(
               width: 300,
               height: 50,
