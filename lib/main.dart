@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,13 +9,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MaPage(),
     );
   }
 }
 
 class MaPage extends StatefulWidget {
+  const MaPage({super.key});
+
   @override
   _MaPageState createState() => _MaPageState();
 }
@@ -39,17 +41,17 @@ class _MaPageState extends State<MaPage> {
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
+            const Icon(
               Icons.menu,
               size: 48,
               color: Colors.orange,
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Points de ventes',
               style: TextStyle(
                 fontFamily: 'Poppins',
@@ -57,8 +59,8 @@ class _MaPageState extends State<MaPage> {
                 fontSize: 16,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Tradex',
               style: TextStyle(
                 fontFamily: 'Poppins',
@@ -67,8 +69,8 @@ class _MaPageState extends State<MaPage> {
                 color: Colors.grey,
               ),
             ),
-            SizedBox(height: 8),
-            Container(
+            const SizedBox(height: 8),
+            SizedBox(
               width: 200,
               height: 30,
               child: DropdownButtonFormField<String>(
@@ -79,17 +81,17 @@ class _MaPageState extends State<MaPage> {
                   });
                 },
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 8),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 8),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.orange),
+                    borderSide: const BorderSide(color: Colors.orange),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.orange),
+                    borderSide: const BorderSide(color: Colors.orange),
                   ),
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_drop_down,
                   color: Colors.orange,
                 ),
@@ -103,12 +105,12 @@ class _MaPageState extends State<MaPage> {
                 }).toList(),
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Expanded(
               child: ListView.separated(
                 itemCount: 4,
                 separatorBuilder: (BuildContext context, int index) =>
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
@@ -123,13 +125,13 @@ class _MaPageState extends State<MaPage> {
                       });
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 32),
+                      padding: const EdgeInsets.symmetric(vertical: 32),
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                         border: Border.all(
                           color: isButtonPressed[index]
                               ? Colors.orange
-                              : Color.fromARGB(255, 238, 236, 236),
+                              : const Color.fromARGB(255, 238, 236, 236),
                           width: 2, // Largeur de la bordure
                         ),
                         borderRadius: BorderRadius.circular(8),
@@ -144,10 +146,10 @@ class _MaPageState extends State<MaPage> {
                                 width: 50,
                                 height: 50,
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Text(
                                 buttonLabels[index][0],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 12,
                                 ),
@@ -161,10 +163,10 @@ class _MaPageState extends State<MaPage> {
                                 width: 50,
                                 height: 50,
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Text(
                                 buttonLabels[index][1],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 12,
                                 ),
@@ -178,10 +180,10 @@ class _MaPageState extends State<MaPage> {
                                 width: 50,
                                 height: 50,
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Text(
                                 buttonLabels[index][2],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 12,
                                 ),
@@ -195,10 +197,10 @@ class _MaPageState extends State<MaPage> {
                                 width: 50,
                                 height: 50,
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Text(
                                 buttonLabels[index][3],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 12,
                                 ),
@@ -212,7 +214,7 @@ class _MaPageState extends State<MaPage> {
                 },
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Container(
               width: double.infinity,
               height: 65,
@@ -220,12 +222,12 @@ class _MaPageState extends State<MaPage> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-  color: Color.fromARGB(255, 241, 241, 241),
+  color: const Color.fromARGB(255, 241, 241, 241),
   width: 2, // Largeur de la bordure
 ),
               ),
             ),
-            SizedBox(height: 23),
+            const SizedBox(height: 23),
             Container(
               width: 300,
               height: 50,
@@ -233,7 +235,7 @@ class _MaPageState extends State<MaPage> {
                 color: Colors.orange,
                 borderRadius: BorderRadius.circular(25),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Sélectionner',
                   style: TextStyle(
